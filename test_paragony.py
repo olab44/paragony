@@ -1,11 +1,7 @@
-from paragony import split_price
+import paragony
 
 
 def test_split_price():
-    assert split_price(100) == (1, 00)
-
-
-def test_fail():
-    assert 2 + 2 * 2 == 8
+    assert paragony.split_price(100) == (1, 00)
 
 
