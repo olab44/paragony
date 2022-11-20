@@ -108,12 +108,12 @@ tax_groupB = {'apples', 'bananas', 'oranges'}
 tax_groupC = {'water', 'juice'}
 tax_groupD = {'phone', 'headphones'}
 
-# print(get_tax_group('beer'))
+print(get_tax_group('beer'))
 
-# if not my_receipt:
-#     print("receipt is empty")
-# else:
-#     print_receipt('2022-10-30', my_receipt)
+if not my_receipt:
+    print("receipt is empty")
+else:
+    print_receipt('2022-10-30', my_receipt)
 
 
 print_receipt('2022-10-30', my_receipt)
