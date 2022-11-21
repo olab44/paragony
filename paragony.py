@@ -1,11 +1,21 @@
 def split_price(price):
+    price = int(price)
+    is_negative = price < 0
+    if is_negative:
+        price = -price
     price_zl = price // 100
     price_gr = price % 100
+    if is_negative:
+        price_zl = -price_zl
     return (price_zl, price_gr)
 
 
 def get_description(name, price):
+    if not name:
+        raise ValueError('Name cannot be empty')
     price_parts = split_price(price)
+    if not formatted_price:
+        return f'{name} does not have a price'
     return f' price of {name} is {price_parts[0]}.{price_parts[1]:02}'
 
 
@@ -32,10 +42,13 @@ product = get_product()
 
 
 def get_total_price(receipt):
-    total_price = 0
-    for name, price in receipt:
-        total_price += price
-    return total_price
+    try:
+        total_price = 0
+        for name, price in receipt:
+            total_price += price
+        return total_price
+    except Exception:
+        return ''
 
 
 def format_price(price):
@@ -57,23 +70,23 @@ def print_receipt(date, receipt):
             print(f'{position:2}. {name:19} {price:>6} {tax_group}')
             position += 1
         print('-'*30)
-        count_tax(name)
+        # count_tax(name)
         total_value = get_total_price(receipt)
         formated_value = format_price(total_value)
         print(f'total {formated_value:>25}')
 
 
-def count_tax(name):
-    price = format_price(price)
-    if get_tax_group(name) == 'A':
-        return price * tax_prices[0]
-    elif get_tax_group(name) == 'B':
-        return price * tax_prices[1]
-    else:
-        return (price * tax_prices[2])
+# def count_tax(name):
+#     price_p = format_price(price)
+#     if get_tax_group(name) == 'A':
+#         return price_p * tax_prices[0]
+#     elif get_tax_group(name) == 'B':
+#         return price_p * tax_prices[1]
+#     else:
+#         return (price * tax_prices[2])
 
 
-print(count_tax('bananas'))
+# print(count_tax('bananas'))
 
 
 def get_tax_group(name):
