@@ -14,8 +14,6 @@ def get_description(name, price):
     if not name:
         raise ValueError('Name cannot be empty')
     price_parts = split_price(price)
-    if not formatted_price:
-        return f'{name} does not have a price'
     return f' price of {name} is {price_parts[0]}.{price_parts[1]:02}'
 
 
