@@ -25,14 +25,14 @@ def print_description(name, price):
 # print_description('apples', 203)
 
 
-def get_product():
-    name = input("enter product name: ")
-    price = input("how many?: ")
+# def get_product():
+#     name = input("enter product name: ")
+#     price = input("how many?: ")
 
-    return name, price
+#     return name, price
 
 
-product = get_product()
+# product = get_product()
 # print_description(product[0], product[1])
 
 # for element in receipt:
